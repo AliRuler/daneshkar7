@@ -1,14 +1,18 @@
 import {Button, Grid, TextField} from "@mui/material";
 import {useEffect, useState} from "react";
 import {useDispatch} from "react-redux";
-import {addContact} from "../redux/slice/contact.reducer";
+import {addContact, updateContact} from "../redux/slice/contact.reducer";
 import {emptyInputs, formInputs} from "../data/form/form";
-import {useNavigate, Link} from 'react-router-dom'
+import {useNavigate, Link, useParams} from 'react-router-dom'
+import {useSelector} from "react-redux";
 
 const Form = () => {
+    const contacts = useSelector(state => state.contacts)
+    const {ContactId} = useParams()
     const dispatch = useDispatch()
     const navigate = useNavigate()
     const [form,setForm] = useState(emptyInputs)
+    const [stata,setState] = useState('add')
 
     const handleChange = e => {
         setForm({...form,[e.target.name]:e.target.value})
@@ -16,7 +20,11 @@ const Form = () => {
 
     const handleSubmit = e => {
         e.preventDefault()
-        dispatch(addContact(form))
+        if (stata === 'add'){
+            dispatch(addContact(form))
+        }else if (stata === 'update') {
+            dispatch(updateContact(form))
+        }
         clearInput()
         navigate('/')
     }
@@ -28,6 +36,14 @@ const Form = () => {
     useEffect(()=>{
         return () => {
             clearInput()
+        }
+    },[])
+
+    useEffect(()=>{
+        const c = contacts.filter( contact => contact.id === Number(ContactId))[0]
+        if (c){
+            setForm(c)
+            setState('update')
         }
     },[])
 

@@ -23,11 +23,17 @@ export const ContactSlice = createSlice({
             //action => {payload:object}
             const {payload} = action
             state.push(payload)
+        },
+        updateContact: (state,action) => {
+            //action => {payload:object}
+            const {payload} = action
+            const index = state.findIndex(state => state.id === payload.id)
+            state[index] = payload
         }
     }
 })
 
-export const {deleteContact, addContact} = ContactSlice.actions
+export const {deleteContact, addContact, updateContact} = ContactSlice.actions
 
 //always you must export default slice.reducer
 export default ContactSlice.reducer

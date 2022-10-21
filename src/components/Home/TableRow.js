@@ -2,6 +2,7 @@ import {Button, Grid, Typography} from "@mui/material";
 import rowTable from "../../data/home/rowTable";
 import {useDispatch} from "react-redux";
 import {deleteContact} from "../../redux/slice/contact.reducer";
+import {Link} from 'react-router-dom'
 
 const TableRow = ({contact}) => {
     const dispatch = useDispatch()
@@ -30,9 +31,11 @@ const TableRow = ({contact}) => {
                 </Button>
             </Grid>
             <Grid p={2}>
-                <Button variant={'outlined'} color={'secondary'} sx={{borderRadius:2}}>
-                    CHECK TODO
-                </Button>
+                <Link to={`/updateContact/${contact.id}`}>
+                    <Button variant={'outlined'} color={'secondary'} sx={{borderRadius:2}}>
+                        UPDATE
+                    </Button>
+                </Link>
             </Grid>
         </Grid>
     )

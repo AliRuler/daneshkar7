@@ -11,6 +11,10 @@ const router = createBrowserRouter([
         path: "/addContact",
         element: <Form/>,
     },
+    {
+        path: "/updateContact/:ContactId",
+        element: <Form/>,
+    },
 ]);
 
 export default router
