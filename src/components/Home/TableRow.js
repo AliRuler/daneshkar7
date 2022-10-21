@@ -20,17 +20,17 @@ const TableRow = ({contact}) => {
                 </Grid>
             ))}
             <Grid p={2}>
-                <Button variant={'outlined'} color={'error'}  onClick={()=>handleDelete(contact.id)}>
+                <Button variant={'outlined'} color={'error'}  onClick={()=>handleDelete(contact.id)} sx={{borderRadius:2}}>
                     DELETE
                 </Button>
             </Grid>
             <Grid p={2}>
-                <Button variant={'outlined'}>
+                <Button variant={'outlined'} sx={{borderRadius:2}}>
                     INFO
                 </Button>
             </Grid>
             <Grid p={2}>
-                <Button variant={'outlined'} color={'secondary'}>
+                <Button variant={'outlined'} color={'secondary'} sx={{borderRadius:2}}>
                     CHECK TODO
                 </Button>
             </Grid>
