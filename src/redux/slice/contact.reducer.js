@@ -12,8 +12,17 @@ export const ContactSlice = createSlice({
     //initialState
     initialState,
     //reducers are actions in my product
-    reducers: {}
+    reducers: {
+        deleteContact: (state, action) => {
+            //action => {payload:pass arg}
+            const {payload} = action
+            const index = state.findIndex(state => state.id === payload)
+            state.splice(index, 1)
+        }
+    }
 })
+
+export const {deleteContact} = ContactSlice.actions
 
 //always you must export default slice.reducer
 export default ContactSlice.reducer
