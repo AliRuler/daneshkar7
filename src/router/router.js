@@ -1,6 +1,6 @@
 import {createBrowserRouter} from "react-router-dom";
 import Home from "../pages/home";
-import Form from "../pages/form";
+import FormPage from "../pages/formPage";
 
 const router = createBrowserRouter([
     {
@@ -9,11 +9,11 @@ const router = createBrowserRouter([
     },
     {
         path: "/addContact",
-        element: <Form/>,
+        element: <FormPage/>,
     },
     {
         path: "/updateContact/:ContactId",
-        element: <Form/>,
+        element: <FormPage/>,
     },
 ]);
 

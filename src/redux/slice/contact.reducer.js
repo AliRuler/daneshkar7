@@ -14,9 +14,8 @@ export const ContactSlice = createSlice({
     //reducers are actions in my product
     reducers: {
         deleteContact: (state, action) => {
-            //action => {payload:pass arg}
             const {payload} = action
-            const index = state.findIndex(state => state.id === payload)
+            const index = state.findIndex(contact => contact.id === payload)
             state.splice(index, 1)
         },
         addContact: (state, action) => {
@@ -24,7 +23,7 @@ export const ContactSlice = createSlice({
             const {payload} = action
             state.push(payload)
         },
-        updateContact: (state,action) => {
+        updateContact: (state, action) => {
             //action => {payload:object}
             const {payload} = action
             const index = state.findIndex(state => state.id === payload.id)

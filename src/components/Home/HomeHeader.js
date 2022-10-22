@@ -1,5 +1,6 @@
 import {Button, Grid, Typography} from "@mui/material";
 import {Link} from "react-router-dom";
+import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 
 const HomeHeader = () => {
     return(
@@ -10,6 +11,7 @@ const HomeHeader = () => {
             <Grid>
                 <Link to={'/addContact'}>
                     <Button variant={'outlined'} sx={{borderRadius:2}}>
+                        <AddCircleRoundedIcon sx={{mr:1}}/>
                         ADD CONTACT
                     </Button>
                 </Link>

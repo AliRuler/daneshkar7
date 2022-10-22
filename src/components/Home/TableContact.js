@@ -7,7 +7,11 @@ const TableContact = () => {
     const contacts = useSelector(state => state.contacts)
     return (
         <Grid container>
-            {contacts.map( contact => <TableRow contact={contact}/>)}
+            {contacts.map( contact => (
+                <Grid container key={contact.id}>
+                    <TableRow contact={contact}/>
+                </Grid>
+            ))}
         </Grid>
     )
 }
